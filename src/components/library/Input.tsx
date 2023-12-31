@@ -19,8 +19,14 @@ export const Input: React.FC<InputProps> = ({
 	const mergeClasses: string = twMerge([baseClasses, className])
 
 	return (
-		<div>
+		<div className="max-w-sm space-y-3">
+			{label && (
+				<label className="mb-2 block text-sm font-medium">{label}</label>
+			)}
 			<input {...props} className={mergeClasses} />
+			{description && (
+				<p className="mt-2 text-sm text-gray-500">{description}</p>
+			)}
 		</div>
 	)
 }

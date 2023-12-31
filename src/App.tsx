@@ -272,10 +272,17 @@ export default function App() {
 					<Input type="text" placeholder="Placeholder but disabled" disabled />
 				</Section>
 				<Section title="Label" description="Input with a label.">
-					{/* simple Card */}
+					{/* label input */}
+					<Input type="email" label="Email" placeholder="Enter Email" />
 				</Section>
 				<Section title="Description" description="Input with a description.">
-					{/*  */}
+					{/* input with description */}
+					<Input
+						type="password"
+						label="Password"
+						placeholder="Enter Password"
+						description="We don't share your password."
+					/>
 				</Section>
 			</Container>
 		</Layout>
