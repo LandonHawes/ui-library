@@ -2,6 +2,9 @@ import { Section } from "./components/site/Section"
 import { Container } from "./components/site/Container"
 import { Layout } from "./components/site/Layout"
 import { Button } from "./components/library/Button"
+import { BlockLinkCard, ContentCard } from "./components/library/Card"
+import { SiVite, SiNextdotjs } from "react-icons/si"
+import { Input } from "./components/library/Input"
 
 export default function App() {
 	return (
@@ -177,30 +180,102 @@ export default function App() {
 					</Button>
 				</Section>
 				<Section title="Destructive" description="Component">
-					<div className="bg-blue-500/50 p-3">Component1</div>
-					<div className="bg-blue-500/50 p-3">Component2</div>
+					<Button
+						colors={{
+							bg: "bg-red-500",
+							hoverBg: "hover:bg-red-600",
+							focusRing: "focus:ring-red-500",
+						}}
+					>
+						Yes, delete
+					</Button>
+					<Button
+						variant="secondary"
+						colors={{
+							text: "text-red-500",
+							hoverBg: "hover:bg-red-500",
+							focusRing: "focus:ring-red-500",
+							hoverBorder: "hover:border-red-500",
+						}}
+					>
+						Unsubscribe
+					</Button>
+					<Button
+						variant="tertiary"
+						colors={{
+							text: "text-gray-500",
+							hoverText: "hover:text-gray-700",
+							focusRing: "focus:ring-gray-500",
+						}}
+					>
+						Remove
+					</Button>
 				</Section>
 			</Container>
 
-			<Container title="Name with comp" description="Descrip with comp">
-				<Section title="Section Heading using comp" description="Component">
-					<div className="bg-blue-500/50 p-3">Component1</div>
-					<div className="bg-blue-500/50 p-3">Component2</div>
+			<Container
+				title="Card"
+				description="A card is a flexible and extensible content container"
+			>
+				<Section
+					title="Simple"
+					description="Can display content and links that can be selected."
+				>
+					{/* simple Card */}
+					<ContentCard
+						title="Card Title"
+						subtitle="Card subtitle"
+						plaintext="Quick example text to build on the card title and make up the bulk of the card's content."
+						link={{ url: "#", text: "Card Link" }}
+					></ContentCard>
 				</Section>
-				<Section title="Section Heading using comp" description="Component">
-					<div className="bg-blue-500/50 p-3">Component1</div>
-					<div className="bg-blue-500/50 p-3">Component2</div>
+				<Section
+					title="Simple with a header and footer"
+					description="Can display content and links that can be selected including a header and footer."
+				>
+					{/* simple Card */}
+					<ContentCard
+						header="Highlighted Header"
+						title="Card Title"
+						subtitle="Card subtitle"
+						plaintext="Quick example text to build on the card title and make up the bulk of the card's content."
+						link={{ url: "#", text: "Card Link" }}
+					></ContentCard>
+					<ContentCard
+						title="Card Title"
+						subtitle="Card subtitle"
+						plaintext="Quick example text to build on the card title and make up the bulk of the card's content."
+						link={{ url: "#", text: "Card Link" }}
+						footer="Highlighted Footer"
+					></ContentCard>
+				</Section>
+				<Section
+					title="Block Link Cards"
+					description="A card that acts as a link."
+				>
+					<BlockLinkCard url="https://vitejs.dev/" text="Vite">
+						<SiVite className="h-10 w-10" />
+					</BlockLinkCard>
+					<BlockLinkCard url="https://nextjs.org/" text="Nextjs">
+						<SiNextdotjs className="h-10 w-10" />
+					</BlockLinkCard>
 				</Section>
 			</Container>
-
-			<Container title="Name with comp" description="Descrip with comp">
-				<Section title="Section Heading using comp" description="Component">
-					<div className="bg-blue-500/50 p-3">Component1</div>
-					<div className="bg-blue-500/50 p-3">Component2</div>
+			<Container
+				title="Inputs"
+				description="An input is a field used to elicit a response from a user."
+			>
+				<Section title="Basic" description="Basic input with a placeholder.">
+					{/* basic input */}
+					<Input type="text" placeholder="Placeholder" />
+					{/* disabled basic */}
+					<Input type="text" placeholder="Placeholder but disabled" disabled />
 				</Section>
-				<Section title="Section Heading using comp" description="Component">
-					<div className="bg-blue-500/50 p-3">Component1</div>
-					<div className="bg-blue-500/50 p-3">Component2</div>
+				<Section title="Label" description="Input with a label.">
+					{/* simple Card */}
+				</Section>
+				<Section title="Description" description="Input with a description.">
+					{/*  */}
 				</Section>
 			</Container>
 		</Layout>
