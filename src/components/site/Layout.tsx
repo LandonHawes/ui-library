@@ -3,7 +3,7 @@ import { Navbar } from "./Navbar"
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<div className="relative min-h-screen bg-white">
+		<div className="relative min-h-screen bg-white dark:bg-zinc-900">
 			{/* Nav Section */}
 			<Navbar />
 			{/* Main */}
