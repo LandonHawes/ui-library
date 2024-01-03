@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 export const Navbar = () => {
 	return (
-		<header className="sticky top-0 z-50 w-full border-b bg-white dark:border-zinc-700 dark:bg-zinc-900">
+		<header className="sticky top-0 z-50 w-full border-b bg-slate-50 dark:border-zinc-700 dark:bg-zinc-900">
 			<div className="flex h-16 items-center px-10 sm:px-16 lg:px-44">
 				<div className="mx-auto w-full max-w-3xl space-y-20">
 					<div className="flex justify-between">

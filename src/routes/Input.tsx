@@ -8,17 +8,25 @@ export const InputPage = () => {
 			title="Inputs"
 			description="An input is a field used to elicit a response from a user."
 		>
-			<Section title="Basic" description="Basic input with a placeholder.">
+			<Section
+				id="input-basic"
+				title="Basic"
+				description="Basic input with a placeholder."
+			>
 				{/* basic input */}
 				<Input type="text" placeholder="Placeholder" />
 				{/* disabled basic */}
 				<Input type="text" placeholder="Placeholder but disabled" disabled />
 			</Section>
-			<Section title="Label" description="Input with a label.">
+			<Section id="input-label" title="Label" description="Input with a label.">
 				{/* label input */}
 				<Input type="email" label="Email" placeholder="Enter Email" />
 			</Section>
-			<Section title="Description" description="Input with a description.">
+			<Section
+				id="input-description"
+				title="Description"
+				description="Input with a description."
+			>
 				{/* input with description */}
 				<Input
 					type="password"

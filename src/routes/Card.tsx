@@ -10,6 +10,7 @@ export const CardPage = () => {
 			description="A card is a flexible and extensible content container"
 		>
 			<Section
+				id="card-simple"
 				title="Simple"
 				description="Can display content and links that can be selected."
 			>
@@ -22,6 +23,7 @@ export const CardPage = () => {
 				></ContentCard>
 			</Section>
 			<Section
+				id="card-header-footer"
 				title="Simple with a header and footer"
 				description="Can display content and links that can be selected including a header and footer."
 			>
@@ -42,6 +44,7 @@ export const CardPage = () => {
 				></ContentCard>
 			</Section>
 			<Section
+				id="card-block"
 				title="Block Link Cards"
 				description="A card that acts as a link."
 			>

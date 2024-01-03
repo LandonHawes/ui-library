@@ -8,7 +8,7 @@ export const ButtonPage = () => {
 			title="Button"
 			description="A button is a wdiget that enables users to trigger an action or event, such as submitting a form"
 		>
-			<Section title="Primary" description="Component">
+			<Section id="button-primary" title="Primary" description="Component">
 				<Button>Default</Button>
 				<Button disabled>Disabled</Button>
 				<Button
@@ -57,7 +57,7 @@ export const ButtonPage = () => {
 					Twitter Blue
 				</Button>
 			</Section>
-			<Section title="Secondary" description="Component">
+			<Section id="button-secondary" title="Secondary" description="Component">
 				<Button variant="secondary">Default</Button>
 				<Button disabled variant="secondary">
 					Disabled
@@ -123,7 +123,7 @@ export const ButtonPage = () => {
 					Twitter Blue
 				</Button>
 			</Section>
-			<Section title="Tertiary" description="Component">
+			<Section id="button-tertiary" title="Tertiary" description="Component">
 				<Button variant="tertiary">Default </Button>
 				<Button disabled variant="tertiary">
 					Disabled
@@ -184,7 +184,11 @@ export const ButtonPage = () => {
 					Twitter Blue
 				</Button>
 			</Section>
-			<Section title="Destructive" description="Component">
+			<Section
+				id="button-destructive"
+				title="Destructive"
+				description="Component"
+			>
 				<Button
 					colors={{
 						bg: "bg-red-500",
