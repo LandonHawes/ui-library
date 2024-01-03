@@ -2,11 +2,22 @@ import { twMerge } from "tailwind-merge"
 
 // Types for the props that will be passed to this component
 
-type CardContainerProps = React.HTMLAttributes<HTMLDivElement>
+type CardContainerProps = React.HTMLAttributes<HTMLDivElement> & {
+	widthLimit?: "none" | "xs" | "sm" | "md" | "lg"
+}
+
+const cardWidths = {
+	xs: "max-w-xs",
+	sm: "max-w-sm",
+	md: "max-w-md",
+	lg: "max-w-lg",
+	none: "",
+}
 
 export const CardContainer: React.FC<CardContainerProps> = ({
 	className,
 	children,
+	widthLimit = "xs",
 	...props
 }) => {
 	// Base classes
@@ -15,8 +26,10 @@ export const CardContainer: React.FC<CardContainerProps> = ({
 
 	const mergeClasses = twMerge([baseClasses, className])
 
+	const widthClass = twMerge(["w-full", cardWidths[widthLimit]])
+
 	return (
-		<div className="w-full max-w-xs" {...props}>
+		<div className={widthClass} {...props}>
 			<div className={mergeClasses}>{children}</div>
 		</div>
 	)
@@ -30,6 +43,7 @@ export const ContentCard = ({
 	subtitle,
 	plaintext,
 	link,
+	widthLimit,
 	children,
 }: {
 	header?: string
@@ -41,10 +55,11 @@ export const ContentCard = ({
 		url: string
 		text: string
 	}
+	widthLimit?: CardContainerProps["widthLimit"]
 	children?: React.ReactNode
 }) => {
 	return (
-		<CardContainer>
+		<CardContainer widthLimit={widthLimit}>
 			{header && (
 				<div className="rounded-t-xl border-b bg-gray-100 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-800 md:px-5 md:py-4">
 					<p className="mt-1 text-sm text-gray-500 dark:text-zinc-500">
@@ -93,10 +108,17 @@ export const BlockLinkCard = ({
 	url,
 	text,
 	children,
+	CustomLinkComponent,
+	widthLimit,
+
+	customLinkProps = {},
 }: {
 	url?: string
 	text?: string
 	children: React.ReactNode
+	CustomLinkComponent?: React.ComponentType<any>
+	customLinkProps?: any
+	widthLimit?: CardContainerProps["widthLimit"]
 }) => {
 	const linkClasses: string = "flex flex-col items-center p-6 sm:p-10"
 
@@ -108,10 +130,24 @@ export const BlockLinkCard = ({
 	)
 
 	return (
-		<CardContainer className="text-gray-800 transition-colors hover:bg-gray-200/50 dark:text-white dark:hover:bg-zinc-700">
-			<a href={url || "#"} className={linkClasses} target="_blank">
-				{linkContent}
-			</a>
+		<CardContainer
+			widthLimit={widthLimit}
+			className="text-gray-800 transition-colors hover:bg-gray-200/50 dark:text-white dark:hover:bg-zinc-700"
+		>
+			{CustomLinkComponent ? (
+				<CustomLinkComponent className={linkClasses} {...customLinkProps}>
+					{linkContent}
+				</CustomLinkComponent>
+			) : (
+				<a
+					href={url || "#"}
+					className={linkClasses}
+					target="_blank"
+					{...(customLinkProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+				>
+					{linkContent}
+				</a>
+			)}
 		</CardContainer>
 	)
 }
